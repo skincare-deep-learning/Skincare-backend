@@ -1,0 +1,13 @@
+version: '2.0'
+services:
+  base:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=api/__init__.py
+      - FLASK_ENV=development
+    volumes:
+      - './:/usr/src/app'
