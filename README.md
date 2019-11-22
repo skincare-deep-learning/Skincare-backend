@@ -9,8 +9,9 @@ Flask Rest Api to classify skin diseases images
 $ sudo docker-compose up --build
 ```
 
-### Routes
+### Endpoints
 
 ```
 localhost:5000/classifier
 ```
+- POST: Accept an image and return its name
