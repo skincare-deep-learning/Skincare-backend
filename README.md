@@ -14,4 +14,4 @@ $ sudo docker-compose up --build
 ```
 localhost:5000/classifier
 ```
-- POST: Accept an image and return its name
+- POST: Accept an image, with the name's parameter "file", and return its name.
