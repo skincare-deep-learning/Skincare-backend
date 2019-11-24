@@ -25,7 +25,6 @@ def set_diseases(d):
 
     return dict
 
-
 class Classifier(Resource):
     def post(self):
         tb._SYMBOLIC_SCOPE.value = True
@@ -45,6 +44,7 @@ class Classifier(Resource):
 
         #Making the prediction
         result = classifier.predict(test_image)
+
         data = set_diseases(result)
         
         return jsonify({"data":data})
