@@ -14,25 +14,16 @@ warnings.filterwarnings('ignore')
 import keras.backend.tensorflow_backend as tb
 
 
-def make_dic(d):
-    diseases = ['queratose actínica', 'angiofibroma', 'angioma', 'proliferação melanocítica atípica', 'carcinoma basocelular', 'dermatofibroma', 'lentigo NOS', 'lentigo simplex', 'queratose liquenóide', 'melanoma', 'Indefinido', 'Mancha', 'Outro Indefinido', 'queratose benigna pigmentada', 'Cicatriz', 'queratose seborreica', 'lentigo solar', 'carcinoma de células escamosas', 'lesão vascular']
-    dis_list = []
-    for x in np.nditer(d.T):
-        dis_list.append(x)
-    
-        
-    data = {
-        'Diseases': diseases,
-        'Probabilities': dis_list
-    }
+def set_diseases(d):
+    diseases = ['Queratose actinica', 'Angiofibroma', 'Angioma', 'Proliferacao melanocitica atipica', 'Carcinoma basocelular', 'Dermatofibroma', 'Lentigo NOS', 'Lentigo simplex', 'Queratose liquenoide', 'Melanoma', 'Indefinido', 'Mancha', 'Outro Indefinido', 'Queratose benigna pigmentada', 'Cicatriz', 'Queratose seborreica', 'Lentigo solar', 'Carcinoma de celulas escamosas', 'Lesao vascular']
+    dis = d.reshape(19, 1)
+    dis = dis.tolist()
+    dict = {}
+    for i in range(len(dis)):
+        dict[diseases[i]] = dis[i][0]  
+    json.dumps(dict)
 
-    df = pd.DataFrame(data, columns=['Diseases', 'Probabilities'])
-
-    x = df.to_dict(orient='records')
-    diseases_dict = json.dumps(x)
-    print(diseases_dict)
-
-    return diseases_dict
+    return dict
 
 
 class Classifier(Resource):
@@ -54,6 +45,6 @@ class Classifier(Resource):
 
         #Making the prediction
         result = classifier.predict(test_image)
-        data = make_dic(result)
+        data = set_diseases(result)
         
-        return jsonify({"Name":response.filename})
+        return jsonify({"data":data})
