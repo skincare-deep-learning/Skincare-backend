@@ -32,8 +32,7 @@ Access: localhost:5000
 
 **Arguments**
 
-- `"files":` image to be sent 
-- `"name":file` the image's name must be 'file' 
+- `"file":` image to be sent 
 - `"enctype="multipart/form-data"` how the image must be encoded
 
 The image will get a list of the possible and its probabilities. The image classification is related to the greater probability among all provided.
