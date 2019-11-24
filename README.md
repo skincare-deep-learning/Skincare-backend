@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/skincare-deep-learning/Skincare-backend.svg?branch=master
+)](https://travis-ci.org/skincare-deep-learning/Skincare-backend.svg?branch=master
+)
+
+
 # Skincare Backend
 Flask Rest Api to classify skin diseases images 
 
