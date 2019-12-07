@@ -15,7 +15,7 @@ import keras.backend.tensorflow_backend as tb
 
 
 def set_diseases(d):
-    diseases = ['Queratose actinica', 'Angiofibroma', 'Angioma', 'Proliferacao melanocitica atipica', 'Carcinoma basocelular', 'Dermatofibroma', 'Lentigo NOS', 'Lentigo simplex', 'Queratose liquenoide', 'Melanoma', 'Indefinido', 'Mancha', 'Outro Indefinido', 'Queratose benigna pigmentada', 'Cicatriz', 'Queratose seborreica', 'Lentigo solar', 'Carcinoma de celulas escamosas', 'Lesao vascular']
+    diseases = ['Queratose actinica',  'Carcinoma basocelular',  'Melanoma', 'Indefinido', 'Mancha',  'Queratose benigna pigmentada',  'Queratose seborreica',  'Carcinoma de celulas escamosas', 'Lesao vascular']
     dis = d.reshape(19, 1)
     dis = dis.tolist()
     dict = {}
